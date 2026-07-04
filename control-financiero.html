@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Control Financiero y Procesos Internos · Beaver Advisors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#712D80;--purple-lt:rgba(113,45,128,.12);
+  --teal:#24A58D;--teal-lt:rgba(36,165,141,.12);
+  --lavender:#BBC5FF;--lavender-2:#C9BBF3;
+  --olive:#D9D785;--mint:#DDEEDE;--cream:#F7F3EA;
+  --ink:#0f0f0f;--off:#1a1a1a;--mid:#2e2e2e;
+  --muted:#888;--line:rgba(255,255,255,.08);--white:#ffffff;
+  --radius:4px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.1}
+h1{font-size:clamp(2.8rem,6vw,5rem);font-weight:400}
+h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:400}
+h3{font-size:1.05rem;font-weight:600;font-family:'DM Sans',sans-serif}
+p{line-height:1.75;color:var(--muted);font-size:.92rem}
+.label{font-size:.65rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--teal)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 2.5rem}
+.divider{border:none;border-top:1px solid var(--line);margin:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(15,15,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white)}
+.nav-logo em{font-style:italic;color:var(--teal)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{font-size:.8rem;color:rgba(255,255,255,.45);letter-spacing:.3px;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-cta{font-size:.78rem!important;color:var(--white)!important;background:var(--purple);padding:.5rem 1.3rem;border-radius:50px;font-weight:500!important;transition:background .2s!important}
+.nav-cta:hover{background:#5a2268!important}
+
+/* SERVICE HERO */
+.svc-hero{padding:160px 0 80px;position:relative;overflow:hidden}
+.svc-hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0f0f0f 50%,#1a0a24 100%);z-index:0}
+.svc-hero-content{position:relative;z-index:1}
+.svc-tag{display:inline-flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+.svc-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--teal)}
+.svc-hook{font-size:1.05rem;color:rgba(255,255,255,.55);line-height:1.75;max-width:580px;margin:1.5rem 0 2.5rem;font-style:italic}
+.svc-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem}
+.svc-meta-item{padding:1rem 1.5rem;border:1px solid var(--line);border-radius:var(--radius)}
+.svc-meta-item .m-label{font-size:.62rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.svc-meta-item .m-val{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white)}
+.svc-meta-item .m-val em{font-style:italic;color:var(--teal)}
+
+/* CONTENT SECTIONS */
+.svc-section{padding:80px 0}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.svc-col{background:var(--off);padding:2rem}
+.svc-col-label{font-size:.6rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.svc-list{list-style:none}
+.svc-list li{display:flex;gap:.6rem;font-size:.83rem;color:rgba(255,255,255,.55);padding:.3rem 0;line-height:1.5;border-bottom:1px solid rgba(255,255,255,.04)}
+.svc-list li:last-child{border-bottom:none}
+.svc-list li::before{content:'→';color:var(--teal);flex-shrink:0;font-size:.75rem;margin-top:2px}
+.svc-list.exclude li::before{content:'—';color:rgba(255,255,255,.2)}
+
+/* TRANSFORM BOX */
+.transform-box{margin:3rem 0;padding:2.5rem;border:1px solid rgba(36,165,141,.25);border-radius:8px;background:rgba(36,165,141,.04);position:relative;overflow:hidden}
+.transform-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--purple))}
+.transform-label{font-size:.62rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:1rem}
+.transform-text{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:rgba(255,255,255,.8);line-height:1.7}
+
+/* PHASES (Arranca Bien) */
+.phases{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+.phase{padding:1.5rem;border:1px solid var(--line);border-radius:8px;background:var(--off)}
+.phase.full{grid-column:span 2}
+.phase-num{font-size:.6rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem}
+.phase h4{font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:.75rem}
+.phase ul{list-style:none}
+.phase ul li{font-size:.8rem;color:var(--muted);padding:.2rem 0;display:flex;gap:.4rem;line-height:1.4}
+.phase ul li::before{content:'·';color:var(--teal);flex-shrink:0}
+
+/* PLANS STRIP (Chill-Books) */
+.plans-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:2rem 0}
+.p-card{background:var(--off);padding:1.75rem 1.5rem}
+.p-card.feat{background:rgba(113,45,128,.1)}
+.p-card.dark{background:#0a0a0a}
+.p-tier{font-size:.6rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.p-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:.3rem}
+.p-card.feat .p-name{color:var(--lavender)}
+.p-price{font-family:'Playfair Display',serif;font-size:1.8rem;line-height:1;color:var(--white);margin-bottom:.15rem}
+.p-card.feat .p-price{color:var(--lavender)}
+.p-period{font-size:.68rem;color:var(--muted);margin-bottom:1.25rem}
+.p-div{border:none;border-top:1px solid var(--line);margin-bottom:1rem}
+.p-feats{list-style:none}
+.p-feats li{font-size:.76rem;color:rgba(255,255,255,.45);padding:.28rem 0;display:flex;gap:.4rem;line-height:1.35;border-bottom:1px solid rgba(255,255,255,.04)}
+.p-feats li:last-child{border-bottom:none}
+.p-check{color:var(--teal);flex-shrink:0;font-size:.8rem}
+.p-for{font-size:.68rem;font-style:italic;color:var(--muted);margin-top:.875rem;border-top:1px solid var(--line);padding-top:.75rem}
+.p-btn{display:block;text-align:center;margin-top:1.25rem;padding:.65rem;border-radius:50px;font-size:.76rem;font-weight:500;cursor:pointer;transition:all .2s}
+.p-outline{border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.55)}
+.p-outline:hover{border-color:var(--white);color:var(--white)}
+.p-fill{background:var(--purple);color:var(--white)}
+.p-fill:hover{opacity:.85}
+
+/* CTA STRIP */
+.cta-strip{margin:4rem 0 0;padding:3rem;border:1px solid rgba(113,45,128,.3);border-radius:8px;background:var(--purple-lt);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-strip h3{font-size:1.3rem;font-family:'Playfair Display',serif;font-weight:400;color:var(--white);margin-bottom:.4rem}
+.cta-strip p{font-size:.83rem;margin:0}
+.btn-purple{display:inline-block;background:var(--purple);color:var(--white);padding:.8rem 2rem;border-radius:50px;font-size:.83rem;font-weight:500;transition:opacity .2s}
+.btn-purple:hover{opacity:.85}
+.btn-teal{display:inline-block;background:var(--teal);color:var(--white);padding:.8rem 2rem;border-radius:50px;font-size:.83rem;font-weight:500;transition:opacity .2s}
+.btn-teal:hover{opacity:.85}
+
+/* BACK NAV */
+.back-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted);margin-bottom:2rem;transition:color .2s}
+.back-link:hover{color:var(--white)}
+
+/* BREADCRUMB */
+.breadcrumb{font-size:.72rem;color:var(--muted);margin-bottom:1rem}
+.breadcrumb a{color:var(--teal);transition:opacity .2s}
+.breadcrumb a:hover{opacity:.7}
+
+/* FOOTER */
+footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;max-width:1060px;margin:0 auto}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--white)}
+.footer-logo em{font-style:italic;color:var(--teal)}
+.footer-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:.75rem;color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{font-size:.7rem;color:rgba(255,255,255,.2)}
+
+@media(max-width:900px){
+  .svc-grid{grid-template-columns:1fr}
+  .phases{grid-template-columns:1fr}
+  .phase.full{grid-column:span 1}
+  .plans-strip{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .cta-strip{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:580px){
+  .plans-strip{grid-template-columns:1fr}
+  .svc-meta{flex-direction:column;gap:1rem}
+  .wrap{padding:0 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Beaver<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Servicios</a></li>
+    <li><a href="index.html#about">Nosotros</a></li>
+    <li><a href="index.html#founder">Fundadora</a></li>
+    <li><a href="index.html#testimonials">Clientes</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Hablemos</a></li>
+  </ul>
+</nav>
+
+
+<section class="svc-hero">
+  <div class="svc-hero-bg"></div>
+  <div class="wrap svc-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> / Servicios / Control Financiero</div>
+    <div class="svc-tag"><span class="svc-tag-dot"></span><span class="label">Proyecto puntual · Control interno</span></div>
+    <h1>Control Financiero<br>y Procesos Internos</h1>
+    <p class="svc-hook">"Más personas, más transacciones, más movimiento — pero sin procesos claros. Ese desorden tiene un costo que no siempre se ve."</p>
+    <div class="svc-meta">
+      <div class="svc-meta-item"><div class="m-label">Tipo</div><div class="m-val">Proyecto <em>puntual</em></div></div>
+      <div class="svc-meta-item"><div class="m-label">Inversión</div><div class="m-val">$<em>1,000</em> – $3,000</div></div>
+      <div class="svc-meta-item"><div class="m-label">Idiomas</div><div class="m-val"><em>EN</em> · ES</div></div>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+<section class="svc-section">
+  <div class="wrap">
+    <div class="svc-grid">
+      <div class="svc-col">
+        <div class="svc-col-label">Incluye</div>
+        <ul class="svc-list">
+          <li>Diagnóstico de riesgos financieros y operativos</li>
+          <li>Revisión de procesos clave</li>
+          <li>Diseño de controles internos prácticos</li>
+          <li>Matriz de controles y responsables</li>
+          <li>Políticas básicas y flujos de aprobación</li>
+          <li>Guía de responsabilidades del equipo</li>
+          <li>Sesión de capacitación a colaboradores</li>
+        </ul>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-label">No incluye</div>
+        <ul class="svc-list exclude">
+          <li>Auditoría ni revisión histórica</li>
+          <li>Evaluación legal o fiscal</li>
+          <li>Gestión operativa interna</li>
+        </ul>
+        <div class="svc-col-label" style="margin-top:1.5rem;">Ideal para</div>
+        <ul class="svc-list">
+          <li>Empresas con colaboradores y compras frecuentes</li>
+          <li>Negocios con caja chica o inventario activo</li>
+          <li>Dueños que quieren menos dependencia operativa</li>
+        </ul>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-label">Resultado esperado</div>
+        <p style="font-size:.83rem;line-height:1.7;color:rgba(255,255,255,.5);">Un sistema de controles internos documentado, práctico y adaptado a tu operación — con responsables claros y procesos que el equipo puede ejecutar sin depender del dueño.</p>
+      </div>
+    </div>
+    <div class="transform-box">
+      <div class="transform-label">La transformación</div>
+      <div class="transform-text">Pasás de operar "confiando en que todo está bien" a tener controles simples que previenen errores, detectan problemas a tiempo y protegen tu empresa mientras crece.</div>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<div class="wrap">
+  <div class="cta-strip">
+    <div>
+      <h3>¿Este servicio es lo que necesitás?</h3>
+      <p>Primera consulta sin costo. Sin compromiso. Solo una conversación honesta.</p>
+    </div>
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+      <a href="https://api.whatsapp.com/send?phone=50664274720" class="btn-teal">WhatsApp</a>
+      <a href="index.html#contact" class="btn-purple">Enviar mensaje</a>
+    </div>
+  </div>
+</div>
+
+<div style="padding-bottom:80px;"></div>
+
+
+<footer>
+  <div class="footer-logo">Beaver<em>.</em></div>
+  <ul class="footer-links">
+    <li><a href="index.html#services">Servicios</a></li>
+    <li><a href="index.html#about">Nosotros</a></li>
+    <li><a href="index.html#contact">Contacto</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Beaver Advisors · Costa Rica · EN · ES</p>
+</footer>
+</body>
+</html>
