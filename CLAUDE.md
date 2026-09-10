@@ -9,13 +9,17 @@ Static marketing site for Beaver Advisors (financial advisory business), in Span
 Pages:
 - `index.html` — the main landing page (hero, about, services, testimonials, founder, contact — these are anchor sections, not separate routes).
 - One HTML file per service, each linking back to `index.html` anchor sections (`#about`, `#services`, `#testimonials`, `#founder`, `#contact`) via the nav bar:
-  - `arranca-bien.html`
+  - `arranca-bien.html` (displayed as "Despegar")
   - `chill-books.html`
   - `control-financiero.html`
   - `diagnostico-financiero.html`
   - `estructuracion-financiera.html`
   - `plan-financiero-anual.html`
   - `preparacion-banco-inversionista.html`
+  - `cfo-estrategico.html`
+  - `auditoria-financiera.html`
+  - `auditoria-interna.html`
+  - `certificacion-ingresos.html`
 
 ## Development
 
