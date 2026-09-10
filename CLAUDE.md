@@ -10,7 +10,7 @@ Pages:
 - `index.html` — the main landing page (hero, about, services, testimonials, founder, contact — these are anchor sections, not separate routes).
 - One HTML file per service, each linking back to `index.html` anchor sections (`#about`, `#services`, `#testimonials`, `#founder`, `#contact`) via the nav bar:
   - `arranca-bien.html` (displayed as "Despegar")
-  - `chill-books.html`
+  - `chill-books.html` (displayed as "Contabilidad Mensual")
   - `control-financiero.html`
   - `diagnostico-financiero.html`
   - `estructuracion-financiera.html`
