@@ -508,7 +508,7 @@ nav.scrolled {
 
 /* ── CONTACT ── */
 #contact { padding: 0 0 120px; }
-.contact-grid { max-width: 480px; margin: 0 auto; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
 .contact-info h2 { margin-bottom: 1rem; }
 .contact-info p { margin-bottom: 2rem; }
 .contact-items { display: flex; flex-direction: column; gap: 1rem; }
@@ -522,6 +522,41 @@ nav.scrolled {
 }
 .contact-item:hover { border-color: rgba(113,45,128,.3); color: var(--white); }
 .contact-ico { font-size: 1rem; flex-shrink: 0; }
+.form-row { display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1rem; }
+.form-row label { font-size: .72rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+.form-row input, .form-row select, .form-row textarea {
+  background: var(--off);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem;
+  padding: .875rem 1rem;
+  width: 100%;
+  transition: border-color .2s;
+  outline: none;
+  resize: none;
+}
+.form-row select { cursor: pointer; }
+.form-row select option { background: var(--off); color: var(--white); }
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: rgba(113,45,128,.4); }
+.form-row input::placeholder, .form-row textarea::placeholder { color: var(--muted); }
+.form-submit {
+  width: 100%; padding: .875rem;
+  background: var(--gold); color: var(--ink);
+  border: none; border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem; font-weight: 500;
+  cursor: pointer; transition: opacity .2s;
+  letter-spacing: .3px;
+}
+.form-submit:hover { opacity: .85; }
+.form-submit:disabled { opacity: .5; cursor: not-allowed; }
+.form-note { font-size: .72rem; color: var(--muted); margin-top: .75rem; }
+.form-status { font-size: .83rem; margin-top: 1rem; padding: .875rem 1rem; border-radius: var(--radius); display: none; }
+.form-status.success { display: block; background: rgba(36,165,141,.1); border: 1px solid rgba(36,165,141,.3); color: var(--teal); }
+.form-status.error { display: block; background: rgba(220,80,80,.1); border: 1px solid rgba(220,80,80,.3); color: #ff9d9d; }
+.form-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
 /* ── FOOTER ── */
 footer {
@@ -557,6 +592,7 @@ footer {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .testi-header { flex-direction: column; align-items: flex-start; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
 }
 @media (max-width: 580px) {
   .plans-grid { grid-template-columns: 1fr; }
@@ -904,6 +940,51 @@ footer {
           </div>
         </div>
       </div>
+      <div class="form-wrap">
+        <form id="quote-form" action="https://formsubmit.co/info@beaveradvisors.com" method="POST">
+          <input type="hidden" name="_subject" value="New quote request — Beaver Advisors (EN)">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <label for="q-name-en">Full name</label>
+            <input type="text" id="q-name-en" name="Name" placeholder="Your full name" required>
+          </div>
+          <div class="form-row">
+            <label for="q-email-en">Email</label>
+            <input type="email" id="q-email-en" name="Email" placeholder="you@email.com" required>
+          </div>
+          <div class="form-row">
+            <label for="q-phone-en">Phone</label>
+            <input type="tel" id="q-phone-en" name="Phone" placeholder="+1 ····-····">
+          </div>
+          <div class="form-row">
+            <label for="q-service-en">Service of interest</label>
+            <select id="q-service-en" name="Service of interest">
+              <option value="">Select an option</option>
+              <option>Monthly Accounting</option>
+              <option>Launch</option>
+              <option>Beaver Financial Diagnosis</option>
+              <option>Annual Financial Plan</option>
+              <option>Financial Structuring</option>
+              <option>Preparation for Bank or Investor</option>
+              <option>Financial Control and Internal Processes</option>
+              <option>Strategic CFO</option>
+              <option>Financial Audit</option>
+              <option>Internal Audit and Internal Control</option>
+              <option>CPA Income Certifications</option>
+              <option>Not sure / I want advice</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="q-message-en">Tell us about your business</label>
+            <textarea id="q-message-en" name="Message" rows="4" placeholder="What do you need? Tell us a bit about your business..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Request a quote</button>
+          <p class="form-note">We'll reply with your quote by email within 2 business days.</p>
+          <div class="form-status" id="q-status-en"></div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -947,6 +1028,37 @@ function rotate() {
 }
 rotator.style.transition = 'opacity .5s, transform .5s';
 setInterval(rotate, 2800);
+
+// Quote form
+const quoteForm = document.getElementById('quote-form');
+if (quoteForm) {
+  quoteForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const status = document.getElementById('q-status-en');
+    const btn = quoteForm.querySelector('.form-submit');
+    const originalLabel = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.className = 'form-status';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/info@beaveradvisors.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(quoteForm)))
+      });
+      if (!res.ok) throw new Error('bad response');
+      status.className = 'form-status success';
+      status.textContent = "Thank you! We've received your request and will be in touch soon.";
+      quoteForm.reset();
+    } catch (err) {
+      status.className = 'form-status error';
+      status.textContent = "We couldn't send the form. Please email us directly at info@beaveradvisors.com.";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+    }
+  });
+}
 </script>
 </body>
 </html>

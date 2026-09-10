@@ -508,7 +508,7 @@ nav.scrolled {
 
 /* ── CONTACT ── */
 #contact { padding: 0 0 120px; }
-.contact-grid { max-width: 480px; margin: 0 auto; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
 .contact-info h2 { margin-bottom: 1rem; }
 .contact-info p { margin-bottom: 2rem; }
 .contact-items { display: flex; flex-direction: column; gap: 1rem; }
@@ -522,6 +522,41 @@ nav.scrolled {
 }
 .contact-item:hover { border-color: rgba(113,45,128,.3); color: var(--white); }
 .contact-ico { font-size: 1rem; flex-shrink: 0; }
+.form-row { display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1rem; }
+.form-row label { font-size: .72rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+.form-row input, .form-row select, .form-row textarea {
+  background: var(--off);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem;
+  padding: .875rem 1rem;
+  width: 100%;
+  transition: border-color .2s;
+  outline: none;
+  resize: none;
+}
+.form-row select { cursor: pointer; }
+.form-row select option { background: var(--off); color: var(--white); }
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: rgba(113,45,128,.4); }
+.form-row input::placeholder, .form-row textarea::placeholder { color: var(--muted); }
+.form-submit {
+  width: 100%; padding: .875rem;
+  background: var(--gold); color: var(--ink);
+  border: none; border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem; font-weight: 500;
+  cursor: pointer; transition: opacity .2s;
+  letter-spacing: .3px;
+}
+.form-submit:hover { opacity: .85; }
+.form-submit:disabled { opacity: .5; cursor: not-allowed; }
+.form-note { font-size: .72rem; color: var(--muted); margin-top: .75rem; }
+.form-status { font-size: .83rem; margin-top: 1rem; padding: .875rem 1rem; border-radius: var(--radius); display: none; }
+.form-status.success { display: block; background: rgba(36,165,141,.1); border: 1px solid rgba(36,165,141,.3); color: var(--teal); }
+.form-status.error { display: block; background: rgba(220,80,80,.1); border: 1px solid rgba(220,80,80,.3); color: #ff9d9d; }
+.form-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
 /* ── FOOTER ── */
 footer {
@@ -557,6 +592,7 @@ footer {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .testi-header { flex-direction: column; align-items: flex-start; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
 }
 @media (max-width: 580px) {
   .plans-grid { grid-template-columns: 1fr; }
@@ -904,6 +940,51 @@ footer {
           </div>
         </div>
       </div>
+      <div class="form-wrap">
+        <form id="quote-form" action="https://formsubmit.co/info@beaveradvisors.com" method="POST">
+          <input type="hidden" name="_subject" value="Nueva solicitud de cotización — Beaver Advisors (ES)">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <label for="q-name-es">Nombre completo</label>
+            <input type="text" id="q-name-es" name="Nombre" placeholder="Tu nombre completo" required>
+          </div>
+          <div class="form-row">
+            <label for="q-email-es">Correo electrónico</label>
+            <input type="email" id="q-email-es" name="Correo" placeholder="tu@correo.com" required>
+          </div>
+          <div class="form-row">
+            <label for="q-phone-es">Teléfono</label>
+            <input type="tel" id="q-phone-es" name="Teléfono" placeholder="+506 ····-····">
+          </div>
+          <div class="form-row">
+            <label for="q-service-es">Servicio de interés</label>
+            <select id="q-service-es" name="Servicio de interés">
+              <option value="">Seleccioná una opción</option>
+              <option>Contabilidad Mensual</option>
+              <option>Despegar</option>
+              <option>Diagnóstico Financiero Beaver</option>
+              <option>Plan Financiero Anual</option>
+              <option>Estructuración Financiera</option>
+              <option>Preparación para Banco o Inversionista</option>
+              <option>Control Financiero y Procesos Internos</option>
+              <option>CFO Estratégico</option>
+              <option>Auditoría Financiera</option>
+              <option>Auditoría Interna y Control Interno</option>
+              <option>Certificaciones de Ingresos CPA</option>
+              <option>No estoy seguro / Quiero asesoría</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="q-message-es">Contanos sobre tu negocio</label>
+            <textarea id="q-message-es" name="Mensaje" rows="4" placeholder="¿Qué necesitás? Contanos un poco sobre tu negocio..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Solicitar cotización</button>
+          <p class="form-note">Te responderemos con tu cotización por correo en menos de 2 días hábiles.</p>
+          <div class="form-status" id="q-status-es"></div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -947,6 +1028,37 @@ function rotate() {
 }
 rotator.style.transition = 'opacity .5s, transform .5s';
 setInterval(rotate, 2800);
+
+// Quote form
+const quoteForm = document.getElementById('quote-form');
+if (quoteForm) {
+  quoteForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const status = document.getElementById('q-status-es');
+    const btn = quoteForm.querySelector('.form-submit');
+    const originalLabel = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    status.className = 'form-status';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/info@beaveradvisors.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(quoteForm)))
+      });
+      if (!res.ok) throw new Error('bad response');
+      status.className = 'form-status success';
+      status.textContent = '¡Gracias! Recibimos tu solicitud y te contactaremos pronto.';
+      quoteForm.reset();
+    } catch (err) {
+      status.className = 'form-status error';
+      status.textContent = 'No pudimos enviar el formulario. Escribinos directamente a info@beaveradvisors.com.';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+    }
+  });
+}
 </script>
 </body>
 </html>
