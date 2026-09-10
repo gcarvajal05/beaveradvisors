@@ -80,28 +80,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2.5rem;displ
 .phase ul li{font-size:.8rem;color:var(--muted);padding:.2rem 0;display:flex;gap:.4rem;line-height:1.4}
 .phase ul li::before{content:'·';color:var(--teal);flex-shrink:0}
 
-/* PLANS STRIP (Chill-Books) */
-.plans-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:2rem 0}
-.p-card{background:var(--off);padding:1.75rem 1.5rem}
-.p-card.feat{background:rgba(113,45,128,.1)}
-.p-card.dark{background:#0a0a0a}
-.p-tier{font-size:.6rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
-.p-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:.3rem}
-.p-card.feat .p-name{color:var(--lavender)}
-.p-price{font-family:'Playfair Display',serif;font-size:1.8rem;line-height:1;color:var(--white);margin-bottom:.15rem}
-.p-card.feat .p-price{color:var(--lavender)}
-.p-period{font-size:.68rem;color:var(--muted);margin-bottom:1.25rem}
-.p-div{border:none;border-top:1px solid var(--line);margin-bottom:1rem}
-.p-feats{list-style:none}
-.p-feats li{font-size:.76rem;color:rgba(255,255,255,.45);padding:.28rem 0;display:flex;gap:.4rem;line-height:1.35;border-bottom:1px solid rgba(255,255,255,.04)}
-.p-feats li:last-child{border-bottom:none}
-.p-check{color:var(--teal);flex-shrink:0;font-size:.8rem}
-.p-for{font-size:.68rem;font-style:italic;color:var(--muted);margin-top:.875rem;border-top:1px solid var(--line);padding-top:.75rem}
-.p-btn{display:block;text-align:center;margin-top:1.25rem;padding:.65rem;border-radius:50px;font-size:.76rem;font-weight:500;cursor:pointer;transition:all .2s}
-.p-outline{border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.55)}
-.p-outline:hover{border-color:var(--white);color:var(--white)}
-.p-fill{background:var(--purple);color:var(--white)}
-.p-fill:hover{opacity:.85}
+/* TIERS (Chill-Books) */
+.tier{border:1px solid var(--line);border-radius:8px;background:var(--off);padding:2.5rem;margin-bottom:1.5rem}
+.tier.feat{background:rgba(113,45,128,.08);border-color:rgba(113,45,128,.3)}
+.tier-num{font-size:.62rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem}
+.tier-title{font-size:1.5rem;margin-bottom:.25rem}
+.tier-title span{color:var(--muted);font-weight:400}
+.tier.feat .tier-title{color:var(--lavender)}
+.tier-desc{max-width:620px;margin-bottom:1.5rem}
+.tier-includes-label{font-size:.68rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
 
 /* CTA STRIP */
 .cta-strip{margin:4rem 0 0;padding:3rem;border:1px solid rgba(113,45,128,.3);border-radius:8px;background:var(--purple-lt);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
@@ -134,12 +121,10 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
   .svc-grid{grid-template-columns:1fr}
   .phases{grid-template-columns:1fr}
   .phase.full{grid-column:span 1}
-  .plans-strip{grid-template-columns:1fr 1fr}
   .nav-links{display:none}
   .cta-strip{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:580px){
-  .plans-strip{grid-template-columns:1fr}
   .svc-meta{flex-direction:column;gap:1rem}
   .wrap{padding:0 1.25rem}
 }
@@ -164,10 +149,9 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
     <div class="breadcrumb"><a href="index.html">Inicio</a> / Servicios / Chill-Books</div>
     <div class="svc-tag"><span class="svc-tag-dot"></span><span class="label">Plan mensual</span></div>
     <h1>Chill-Books</h1>
-    <p class="svc-hook">Llevás meses recibiendo un Excel que no entendés — o peor, que no te dice nada útil. Tu contabilidad debería ser tu herramienta más valiosa para tomar decisiones. No un trámite.</p>
+    <p class="svc-hook">Tu contabilidad debería ayudarte a tomar decisiones, no solamente a presentar impuestos.</p>
     <div class="svc-meta">
       <div class="svc-meta-item"><div class="m-label">Tipo</div><div class="m-val">Plan <em>mensual</em></div></div>
-      <div class="svc-meta-item"><div class="m-label">Desde</div><div class="m-val">₡<em>175,000</em>/mes</div></div>
       <div class="svc-meta-item"><div class="m-label">Idiomas</div><div class="m-val"><em>EN</em> · ES</div></div>
     </div>
   </div>
@@ -176,84 +160,65 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
 <section class="svc-section">
   <div class="wrap">
     <span class="label" style="display:block;margin-bottom:1rem;">Elegí tu nivel</span>
-    <h2 style="margin-bottom:2rem;">Contabilidad que por fin<br>tiene sentido.</h2>
-    <div class="plans-strip">
-      <div class="p-card">
-        <div class="p-tier">Nivel 01</div>
-        <div class="p-name">Starter</div>
-        <div class="p-price">₡175,000</div>
-        <div class="p-period">/mes · sin IVA</div>
-        <hr class="p-div">
-        <ul class="p-feats">
-          <li><span class="p-check">✓</span>Registro y clasificación de transacciones</li>
-          <li><span class="p-check">✓</span>Conciliación bancaria mensual</li>
-          <li><span class="p-check">✓</span>Licencia Alegra incluida</li>
-          <li><span class="p-check">✓</span>Estado de resultados mensual</li>
-          <li><span class="p-check">✓</span>Balance de situación mensual</li>
-          <li><span class="p-check">✓</span>Declaración mensual de IVA</li>
-          <li><span class="p-check">✓</span>Declaración anual de renta</li>
-          <li><span class="p-check">✓</span>1 reunión bimestral de revisión</li>
-        </ul>
-        <p class="p-for">Ideal para: persona física / profesional independiente</p>
-        <a href="index.html#contact" class="p-btn p-outline">Quiero este plan</a>
-      </div>
-      <div class="p-card feat">
-        <div class="p-tier">Nivel 02 · Más popular</div>
-        <div class="p-name">Pro</div>
-        <div class="p-price">₡295,000</div>
-        <div class="p-period">/mes · sin IVA</div>
-        <hr class="p-div">
-        <ul class="p-feats">
-          <li><span class="p-check">✓</span>Todo lo de Starter</li>
-          <li><span class="p-check">✓</span>Flujo de efectivo mensual</li>
-          <li><span class="p-check">✓</span>Cambios en el patrimonio</li>
-          <li><span class="p-check">✓</span>Análisis mensual de variaciones</li>
-          <li><span class="p-check">✓</span>Análisis mensual de rentabilidad</li>
-          <li><span class="p-check">✓</span>Portal financiero en tiempo real</li>
-          <li><span class="p-check">✓</span>Asesoría fiscal continua</li>
-          <li><span class="p-check">✓</span>1 reunión mensual + WhatsApp prioritario</li>
-        </ul>
-        <p class="p-for">Ideal para: micro y pequeña empresa · hasta 10 colaboradores</p>
-        <a href="index.html#contact" class="p-btn p-fill">Quiero este plan</a>
-      </div>
-      <div class="p-card">
-        <div class="p-tier">Nivel 03 · Premium</div>
-        <div class="p-name">Growth</div>
-        <div class="p-price">₡450,000</div>
-        <div class="p-period">/mes · sin IVA</div>
-        <hr class="p-div">
-        <ul class="p-feats">
-          <li><span class="p-check">✓</span>Todo lo de Pro</li>
-          <li><span class="p-check">✓</span>Revisión de estructura de costos</li>
-          <li><span class="p-check">✓</span>Análisis de rentabilidad por línea</li>
-          <li><span class="p-check">✓</span>Proyecciones financieras trimestrales</li>
-          <li><span class="p-check">✓</span>Optimización fiscal estratégica</li>
-          <li><span class="p-check">✓</span>2 reuniones estratégicas al mes</li>
-        </ul>
-        <p class="p-for">Ideal para: empresa en crecimiento · múltiples líneas</p>
-        <a href="index.html#contact" class="p-btn p-outline">Quiero este plan</a>
-      </div>
-      <div class="p-card dark">
-        <div class="p-tier">Nivel 04</div>
-        <div class="p-name">CFO</div>
-        <div class="p-price" style="font-size:1.3rem;margin-top:.2rem;">Desde ₡750,000</div>
-        <div class="p-period">/mes · cotización personalizada</div>
-        <hr class="p-div">
-        <ul class="p-feats">
-          <li><span class="p-check">✓</span>Todo lo de Growth</li>
-          <li><span class="p-check">✓</span>Dirección financiera estratégica</li>
-          <li><span class="p-check">✓</span>Arquitectura financiera del negocio</li>
-          <li><span class="p-check">✓</span>Estrategia de financiamiento y crédito</li>
-          <li><span class="p-check">✓</span>Definición y seguimiento de KPIs</li>
-          <li><span class="p-check">✓</span>Preparación para bancos o inversionistas</li>
-        </ul>
-        <p class="p-for">Ideal para: empresa en expansión</p>
-        <a href="index.html#contact" class="p-btn p-fill">Hablemos</a>
+    <h2 style="margin-bottom:1rem;">Elige el nivel de acompañamiento<br>que necesita tu negocio.</h2>
+    <p style="max-width:620px;margin-bottom:3rem;">En Beaver combinamos contabilidad, cumplimiento tributario y análisis financiero para que entiendas qué está pasando con tu negocio, hacia dónde va y qué decisiones puedes tomar con mayor seguridad.</p>
+
+    <div class="tier">
+      <div class="tier-num">Nivel 01</div>
+      <h3 class="tier-title">ESENCIAL <span>— Mantén tu negocio en orden</span></h3>
+      <p class="tier-desc">Para profesionales independientes y negocios pequeños que necesitan cumplir correctamente y tener sus números organizados.</p>
+      <div class="tier-includes-label">Incluye</div>
+      <ul class="svc-list">
+        <li>Registro y clasificación contable</li>
+        <li>Conciliación bancaria mensual</li>
+        <li>Licencia contabilidad Alegra</li>
+        <li>Estado de resultados</li>
+        <li>Balance de situación</li>
+        <li>Declaración mensual de IVA</li>
+        <li>Declaración anual de renta</li>
+        <li>Reunión de revisión de desempeño del negocio</li>
+      </ul>
+      <div class="transform-box" style="margin:1.5rem 0 0;">
+        <div class="transform-text">"Nos encargamos de que tu contabilidad esté al día para que puedas concentrarte en operar tu negocio."</div>
       </div>
     </div>
+
+    <div class="tier feat">
+      <div class="tier-num">Nivel 02</div>
+      <h3 class="tier-title">CONTROL <span>— Entiende qué está pasando con tu negocio</span></h3>
+      <div class="tier-includes-label">Incluye todo lo del plan Esencial, más</div>
+      <ul class="svc-list">
+        <li>Flujo de efectivo mensual</li>
+        <li>Análisis de variaciones</li>
+        <li>Análisis de rentabilidad</li>
+        <li>Seguimiento de indicadores financieros básicos</li>
+        <li>Reunión financiera mensual</li>
+        <li>Canal directo para consultas financieras y tributarias</li>
+      </ul>
+      <div class="transform-box" style="margin:1.5rem 0 0;">
+        <div class="transform-text">"No solo recibes estados financieros: los revisamos contigo y te ayudamos a entender qué está funcionando, qué está drenando efectivo y dónde debes prestar atención."</div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-num">Nivel 03</div>
+      <h3 class="tier-title">CRECIMIENTO <span>— Convierte tus números en decisiones</span></h3>
+      <div class="tier-includes-label">Incluye todo lo del plan Control, más</div>
+      <ul class="svc-list">
+        <li>Revisión de estructura de costos</li>
+        <li>Análisis de rentabilidad por producto/servicio/línea de negocio</li>
+        <li>Presupuesto y proyecciones financieras</li>
+        <li>Análisis real vs. presupuesto</li>
+        <li>Planificación fiscal</li>
+        <li>Definición de KPIs financieros</li>
+        <li>Dos reuniones estratégicas mensuales</li>
+      </ul>
+      <p style="margin-top:1.5rem;">Para empresas que ya venden, tienen equipo y necesitan usar su información financiera para crecer con mayor control.</p>
+      <p style="margin-top:.75rem;">Proyección rolling de 3/6/12 meses que te permitirá responder a preguntas como: ¿Podemos contratar a alguien? ¿Podemos abrir otra sede? ¿Cuánto podemos invertir? ¿Qué pasa si las ventas bajan 15%? ¿Cuánto efectivo tendremos dentro de seis meses?</p>
+    </div>
+
     <p style="font-size:.78rem;color:var(--muted);text-align:center;margin-top:1rem;">Servicios adicionales como control y pago de nómina, control de cuentas por pagar y cuentas por cobrar se analizan con base al volumen y necesidad del cliente.</p>
     <p style="font-size:.78rem;color:var(--muted);text-align:center;margin-top:.5rem;">Con cada cliente se hace una reunión sin costo para entender el estado actual del negocio.</p>
-    <p style="font-size:.78rem;color:var(--muted);text-align:center;margin-top:.5rem;font-style:italic;">Precios de referencia, sin embargo la cotización puede sufrir cambios una vez que mantengamos la reunión de screening con el cliente.</p>
   </div>
 </section>
 <hr class="divider">
