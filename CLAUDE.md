@@ -34,3 +34,10 @@ The GitHub CLI (`gh`) is available in this environment for working with issues, 
 - Fonts are loaded from Google Fonts CDN: `Playfair Display` (serif, headings) and `DM Sans` (sans-serif, body).
 - Navigation on service pages links back to anchors in `index.html` (`index.html#services`, etc.), not to standalone pages — `index.html` is the only page with real in-page sections.
 - Page titles follow the pattern `<Service Name> · Beaver Advisors`; `index.html`'s title is the full tagline.
+
+## English version (`en/`)
+
+- `en/` mirrors the root exactly — one English translation per Spanish page, same filenames (`en/index.html`, `en/chill-books.html`, etc.), so relative links within a language folder (`index.html`, `chill-books.html`, `#services`, ...) resolve correctly without a `../` or `en/` prefix.
+- Each page's `<nav>` has a `.lang-switch` control (in `.nav-right`, next to `.nav-links`) that links to the other language's version of the *same* page: root pages link to `en/<file>`, `en/` pages link back to `../<file>`.
+- When editing content on a Spanish page, make the matching edit on its `en/` counterpart (and vice versa) to keep the two versions in sync — there is no shared content source, so translations can drift silently otherwise.
+- `en/index.html`'s word-rotator script (`const words = [...]`) must stay translated in parallel with the root's.

@@ -39,6 +39,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2.5rem;displ
 .nav-links a:hover,.nav-links a.active{color:var(--white)}
 .nav-cta{font-size:.78rem!important;color:var(--white)!important;background:var(--purple);padding:.5rem 1.3rem;border-radius:50px;font-weight:500!important;transition:background .2s!important}
 .nav-cta:hover{background:#5a2268!important}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.lang-switch{display:flex;align-items:center;gap:.4rem;font-size:.75rem}
+.lang-switch a{color:rgba(255,255,255,.45);transition:color .2s}
+.lang-switch a:hover{color:var(--white)}
+.lang-switch .lang-active{color:var(--white);font-weight:600}
+.lang-switch .lang-div{color:rgba(255,255,255,.25)}
 
 /* SERVICE HERO */
 .svc-hero{padding:160px 0 80px;position:relative;overflow:hidden}
@@ -148,13 +154,18 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
 <body>
 <nav>
   <a href="index.html" class="nav-logo">Beaver<em>.</em></a>
-  <ul class="nav-links">
-    <li><a href="index.html#services">Servicios</a></li>
-    <li><a href="index.html#about">Nosotros</a></li>
-    <li><a href="index.html#founder">Fundadora</a></li>
-    <li><a href="index.html#testimonials">Clientes</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Hablemos</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html#services">Servicios</a></li>
+      <li><a href="index.html#about">Nosotros</a></li>
+      <li><a href="index.html#founder">Fundadora</a></li>
+      <li><a href="index.html#testimonials">Clientes</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Hablemos</a></li>
+    </ul>
+    <div class="lang-switch">
+      <a href="en/auditoria-financiera.html">EN</a><span class="lang-div">&middot;</span><span class="lang-active">ES</span>
+    </div>
+  </div>
 </nav>
 
 

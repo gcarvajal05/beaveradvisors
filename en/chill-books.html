@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Certificaciones de Ingresos CPA · Beaver Advisors</title>
+<title>Monthly Accounting · Beaver Advisors</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
@@ -86,28 +86,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2.5rem;displ
 .phase ul li{font-size:.8rem;color:var(--muted);padding:.2rem 0;display:flex;gap:.4rem;line-height:1.4}
 .phase ul li::before{content:'·';color:var(--teal);flex-shrink:0}
 
-/* PLANS STRIP (Chill-Books) */
-.plans-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:2rem 0}
-.p-card{background:var(--off);padding:1.75rem 1.5rem}
-.p-card.feat{background:rgba(113,45,128,.1)}
-.p-card.dark{background:#0a0a0a}
-.p-tier{font-size:.6rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
-.p-name{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:.3rem}
-.p-card.feat .p-name{color:var(--lavender)}
-.p-price{font-family:'Playfair Display',serif;font-size:1.8rem;line-height:1;color:var(--white);margin-bottom:.15rem}
-.p-card.feat .p-price{color:var(--lavender)}
-.p-period{font-size:.68rem;color:var(--muted);margin-bottom:1.25rem}
-.p-div{border:none;border-top:1px solid var(--line);margin-bottom:1rem}
-.p-feats{list-style:none}
-.p-feats li{font-size:.76rem;color:rgba(255,255,255,.45);padding:.28rem 0;display:flex;gap:.4rem;line-height:1.35;border-bottom:1px solid rgba(255,255,255,.04)}
-.p-feats li:last-child{border-bottom:none}
-.p-check{color:var(--teal);flex-shrink:0;font-size:.8rem}
-.p-for{font-size:.68rem;font-style:italic;color:var(--muted);margin-top:.875rem;border-top:1px solid var(--line);padding-top:.75rem}
-.p-btn{display:block;text-align:center;margin-top:1.25rem;padding:.65rem;border-radius:50px;font-size:.76rem;font-weight:500;cursor:pointer;transition:all .2s}
-.p-outline{border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.55)}
-.p-outline:hover{border-color:var(--white);color:var(--white)}
-.p-fill{background:var(--purple);color:var(--white)}
-.p-fill:hover{opacity:.85}
+/* TIERS (Contabilidad Mensual) */
+.tier{border:1px solid var(--line);border-radius:8px;background:var(--off);padding:2.5rem;margin-bottom:1.5rem}
+.tier.feat{background:rgba(113,45,128,.08);border-color:rgba(113,45,128,.3)}
+.tier-num{font-size:.62rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem}
+.tier-title{font-size:1.5rem;margin-bottom:.25rem}
+.tier-title span{color:var(--muted);font-weight:400}
+.tier.feat .tier-title{color:var(--lavender)}
+.tier-desc{max-width:620px;margin-bottom:1.5rem}
+.tier-includes-label{font-size:.68rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
 
 /* CTA STRIP */
 .cta-strip{margin:4rem 0 0;padding:3rem;border:1px solid rgba(113,45,128,.3);border-radius:8px;background:var(--purple-lt);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
@@ -140,12 +127,10 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
   .svc-grid{grid-template-columns:1fr}
   .phases{grid-template-columns:1fr}
   .phase.full{grid-column:span 1}
-  .plans-strip{grid-template-columns:1fr 1fr}
   .nav-links{display:none}
   .cta-strip{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:580px){
-  .plans-strip{grid-template-columns:1fr}
   .svc-meta{flex-direction:column;gap:1rem}
   .wrap{padding:0 1.25rem}
 }
@@ -156,14 +141,14 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
   <a href="index.html" class="nav-logo">Beaver<em>.</em></a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="index.html#services">Servicios</a></li>
-      <li><a href="index.html#about">Nosotros</a></li>
-      <li><a href="index.html#founder">Fundadora</a></li>
-      <li><a href="index.html#testimonials">Clientes</a></li>
-      <li><a href="index.html#contact" class="nav-cta">Hablemos</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#founder">Founder</a></li>
+      <li><a href="index.html#testimonials">Clients</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Let's talk</a></li>
     </ul>
     <div class="lang-switch">
-      <a href="en/certificacion-ingresos.html">EN</a><span class="lang-div">&middot;</span><span class="lang-active">ES</span>
+      <span class="lang-active">EN</span><span class="lang-div">&middot;</span><a href="../chill-books.html">ES</a>
     </div>
   </div>
 </nav>
@@ -172,39 +157,79 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
 <section class="svc-hero">
   <div class="svc-hero-bg"></div>
   <div class="wrap svc-hero-content">
-    <div class="breadcrumb"><a href="index.html">Inicio</a> / Servicios / Certificación de Ingresos</div>
-    <div class="svc-tag"><span class="svc-tag-dot"></span><span class="label">Proyecto puntual · Certificación</span></div>
-    <h1>Certificaciones de<br>Ingresos CPA</h1>
-    <p class="svc-hook">Respalda tus ingresos con una certificación profesional.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a> / Services / Monthly Accounting</div>
+    <div class="svc-tag"><span class="svc-tag-dot"></span><span class="label">Monthly plan</span></div>
+    <h1>Monthly Accounting</h1>
+    <p class="svc-hook">Your accounting should help you make decisions, not just file taxes.</p>
     <div class="svc-meta">
-      <div class="svc-meta-item"><div class="m-label">Tipo</div><div class="m-val">Proyecto <em>puntual</em></div></div>
-      <div class="svc-meta-item"><div class="m-label">Idiomas</div><div class="m-val"><em>EN</em> · ES</div></div>
+      <div class="svc-meta-item"><div class="m-label">Type</div><div class="m-val">Monthly <em>plan</em></div></div>
+      <div class="svc-meta-item"><div class="m-label">Languages</div><div class="m-val"><em>EN</em> · ES</div></div>
     </div>
   </div>
 </section>
 <hr class="divider">
 <section class="svc-section">
   <div class="wrap">
-    <div class="svc-grid" style="grid-template-columns:1fr 1fr;">
-      <div class="svc-col">
-        <div class="svc-col-label">El servicio incluye</div>
-        <ul class="svc-list">
-          <li>Revisión de la documentación soporte</li>
-          <li>Validación de la información financiera requerida</li>
-          <li>Preparación de la certificación de ingresos</li>
-          <li>Emisión y firma por CPA</li>
-          <li>Atención de consultas relacionadas con la certificación</li>
-        </ul>
-      </div>
-      <div class="svc-col">
-        <div class="svc-col-label">Ideal para</div>
-        <p style="font-size:.83rem;line-height:1.7;color:rgba(255,255,255,.5);">Profesionales independientes, empresarios y personas que necesitan acreditar formalmente sus ingresos ante un tercero.</p>
+    <span class="label" style="display:block;margin-bottom:1rem;">Choose your level</span>
+    <h2 style="margin-bottom:1rem;">Choose the level of support<br>your business needs.</h2>
+    <p style="max-width:620px;margin-bottom:3rem;">At Beaver we combine accounting, tax compliance, and financial analysis so you understand what's happening in your business, where it's headed, and what decisions you can make with more confidence.</p>
+
+    <div class="tier">
+      <div class="tier-num">Level 01</div>
+      <h3 class="tier-title">ESSENTIAL <span>— Keep your business in order</span></h3>
+      <p class="tier-desc">For independent professionals and small businesses that need to stay compliant and keep their numbers organized.</p>
+      <div class="tier-includes-label">Includes</div>
+      <ul class="svc-list">
+        <li>Bookkeeping and transaction classification</li>
+        <li>Monthly bank reconciliation</li>
+        <li>Alegra accounting license</li>
+        <li>Income statement</li>
+        <li>Balance sheet</li>
+        <li>Monthly VAT filing</li>
+        <li>Annual income tax filing</li>
+        <li>Business performance review meeting</li>
+      </ul>
+      <div class="transform-box" style="margin:1.5rem 0 0;">
+        <div class="transform-text">"We make sure your books are up to date so you can focus on running your business."</div>
       </div>
     </div>
-    <div class="transform-box">
-      <div class="transform-label">Sobre este servicio</div>
-      <div class="transform-text">Preparamos certificaciones de ingresos emitidas por Contador Público Autorizado (CPA), con base en la documentación y evidencia correspondiente, para respaldar formalmente los ingresos de profesionales independientes, empresarios y otras personas que lo requieran. Este tipo de certificación puede ser solicitada para diferentes trámites ante entidades financieras y otras instituciones.</div>
+
+    <div class="tier feat">
+      <div class="tier-num">Level 02</div>
+      <h3 class="tier-title">CONTROL <span>— Understand what's happening in your business</span></h3>
+      <div class="tier-includes-label">Includes everything in Essential, plus</div>
+      <ul class="svc-list">
+        <li>Monthly cash flow</li>
+        <li>Variance analysis</li>
+        <li>Profitability analysis</li>
+        <li>Basic financial KPI tracking</li>
+        <li>Monthly financial meeting</li>
+        <li>Direct channel for financial and tax questions</li>
+      </ul>
+      <div class="transform-box" style="margin:1.5rem 0 0;">
+        <div class="transform-text">"You don't just receive financial statements: we review them with you and help you understand what's working, what's draining cash, and where you need to pay attention."</div>
+      </div>
     </div>
+
+    <div class="tier">
+      <div class="tier-num">Level 03</div>
+      <h3 class="tier-title">GROWTH <span>— Turn your numbers into decisions</span></h3>
+      <div class="tier-includes-label">Includes everything in Control, plus</div>
+      <ul class="svc-list">
+        <li>Cost structure review</li>
+        <li>Profitability analysis by product/service/business line</li>
+        <li>Budget and financial projections</li>
+        <li>Actual vs. budget analysis</li>
+        <li>Tax planning</li>
+        <li>Financial KPI definition</li>
+        <li>Two strategic meetings per month</li>
+      </ul>
+      <p style="margin-top:1.5rem;">For businesses that are already selling, have a team, and need to use their financial information to grow with more control.</p>
+      <p style="margin-top:.75rem;">A rolling 3/6/12-month projection that lets you answer questions like: Can we hire someone? Can we open another location? How much can we invest? What happens if sales drop 15%? How much cash will we have in six months?</p>
+    </div>
+
+    <p style="font-size:.78rem;color:var(--muted);text-align:center;margin-top:1rem;">Additional services such as payroll management, accounts payable, and accounts receivable are scoped based on the client's volume and needs.</p>
+    <p style="font-size:.78rem;color:var(--muted);text-align:center;margin-top:.5rem;">Every client gets a free meeting to understand the current state of their business.</p>
   </div>
 </section>
 <hr class="divider">
@@ -212,12 +237,12 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
 <div class="wrap">
   <div class="cta-strip">
     <div>
-      <h3>¿Este servicio es lo que necesitás?</h3>
-      <p>Primera consulta sin costo. Sin compromiso. Solo una conversación honesta.</p>
+      <h3>Is this the service you need?</h3>
+      <p>First consultation free. No commitment. Just an honest conversation.</p>
     </div>
     <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
       <a href="https://api.whatsapp.com/send?phone=50664274720" class="btn-teal">WhatsApp</a>
-      <a href="index.html#contact" class="btn-purple">Enviar mensaje</a>
+      <a href="index.html#contact" class="btn-purple">Send message</a>
     </div>
   </div>
 </div>
@@ -228,9 +253,9 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
 <footer>
   <div class="footer-logo">Beaver<em>.</em></div>
   <ul class="footer-links">
-    <li><a href="index.html#services">Servicios</a></li>
-    <li><a href="index.html#about">Nosotros</a></li>
-    <li><a href="index.html#contact">Contacto</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
   </ul>
   <p class="footer-copy">© 2025 Beaver Advisors · Costa Rica · EN · ES</p>
 </footer>
