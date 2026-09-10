@@ -1047,9 +1047,9 @@ if (quoteForm) {
         body: JSON.stringify(Object.fromEntries(new FormData(quoteForm)))
       });
       if (!res.ok) throw new Error('bad response');
-      status.className = 'form-status success';
-      status.textContent = '¡Gracias! Recibimos tu solicitud y te contactaremos pronto.';
       quoteForm.reset();
+      window.location.href = 'gracias.html';
+      return;
     } catch (err) {
       status.className = 'form-status error';
       status.textContent = 'No pudimos enviar el formulario. Escribinos directamente a info@beaveradvisors.com.';

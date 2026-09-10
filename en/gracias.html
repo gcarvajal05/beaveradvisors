@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You · Beaver Advisors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#712D80;--purple-lt:rgba(113,45,128,.12);
+  --teal:#24A58D;--teal-lt:rgba(36,165,141,.12);
+  --lavender:#BBC5FF;--lavender-2:#C9BBF3;
+  --olive:#D9D785;--mint:#DDEEDE;--cream:#F7F3EA;
+  --ink:#0f0f0f;--off:#1a1a1a;--mid:#2e2e2e;
+  --muted:#888;--line:rgba(255,255,255,.08);--white:#ffffff;
+  --radius:4px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.1}
+h1{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:400}
+p{line-height:1.75;color:var(--muted);font-size:.92rem}
+.label{font-size:.65rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--teal)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 2.5rem}
+.divider{border:none;border-top:1px solid var(--line);margin:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(15,15,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white)}
+.nav-logo em{font-style:italic;color:var(--teal)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{font-size:.8rem;color:rgba(255,255,255,.45);letter-spacing:.3px;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-cta{font-size:.78rem!important;color:var(--white)!important;background:var(--purple);padding:.5rem 1.3rem;border-radius:50px;font-weight:500!important;transition:background .2s!important}
+.nav-cta:hover{background:#5a2268!important}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.lang-switch{display:flex;align-items:center;gap:.4rem;font-size:.75rem}
+.lang-switch a{color:rgba(255,255,255,.45);transition:color .2s}
+.lang-switch a:hover{color:var(--white)}
+.lang-switch .lang-active{color:var(--white);font-weight:600}
+.lang-switch .lang-div{color:rgba(255,255,255,.25)}
+
+/* THANK YOU */
+.thanks-section{padding:220px 0 160px;text-align:center;position:relative;overflow:hidden}
+.thanks-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0f0f0f 50%,#1a0a24 100%);z-index:0}
+.thanks-content{position:relative;z-index:1}
+.thanks-icon{width:64px;height:64px;border-radius:50%;background:var(--teal-lt);border:1px solid rgba(36,165,141,.3);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 1.75rem;color:var(--teal)}
+.thanks-content h1{margin-bottom:1rem}
+.thanks-content p{max-width:480px;margin:0 auto 2.5rem;font-size:1rem}
+.thanks-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-purple{display:inline-block;background:var(--purple);color:var(--white);padding:.8rem 2rem;border-radius:50px;font-size:.83rem;font-weight:500;transition:opacity .2s}
+.btn-purple:hover{opacity:.85}
+.btn-teal{display:inline-block;background:var(--teal);color:var(--white);padding:.8rem 2rem;border-radius:50px;font-size:.83rem;font-weight:500;transition:opacity .2s}
+.btn-teal:hover{opacity:.85}
+
+/* FOOTER */
+footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;max-width:1060px;margin:0 auto}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--white)}
+.footer-logo em{font-style:italic;color:var(--teal)}
+.footer-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:.75rem;color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{font-size:.7rem;color:rgba(255,255,255,.2)}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+}
+@media(max-width:580px){
+  .wrap{padding:0 1.25rem}
+  .thanks-section{padding:180px 0 120px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Beaver<em>.</em></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#founder">Founder</a></li>
+      <li><a href="index.html#testimonials">Clients</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Let's talk</a></li>
+    </ul>
+    <div class="lang-switch">
+      <span class="lang-active">EN</span><span class="lang-div">&middot;</span><a href="../gracias.html">ES</a>
+    </div>
+  </div>
+</nav>
+
+<section class="thanks-section">
+  <div class="thanks-bg"></div>
+  <div class="wrap thanks-content">
+    <div class="thanks-icon">✓</div>
+    <span class="label" style="display:block;margin-bottom:1rem;">Request received</span>
+    <h1>Thanks for reaching out!</h1>
+    <p>We've received your quote request. We'll review it and get back to you by email within 2 business days.</p>
+    <div class="thanks-btns">
+      <a href="https://api.whatsapp.com/send?phone=50664274720" class="btn-teal">Message us on WhatsApp</a>
+      <a href="index.html" class="btn-purple">Back to home</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<footer>
+  <div class="footer-logo">Beaver<em>.</em></div>
+  <ul class="footer-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Beaver Advisors · Costa Rica · EN · ES</p>
+</footer>
+</body>
+</html>
