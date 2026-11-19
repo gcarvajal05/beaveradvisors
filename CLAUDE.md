@@ -32,6 +32,7 @@ The GitHub CLI (`gh`) is available in this environment for working with issues, 
 - Each service page duplicates the same CSS (custom properties for colors, nav, hero, section styles) inline rather than sharing a stylesheet — when changing shared visual style (colors, nav, typography), the same edit must be repeated across all files.
 - Design tokens are defined as CSS custom properties at the top of each page's `:root` block, and are consistent across pages. **Token names are legacy from the previous brand and no longer describe the color** — see "Brand identity" below for what each one actually holds.
 - Fonts are loaded from Google Fonts CDN: `Manrope` only (all weights 300–800).
+- Sizing scales with the viewport through the root font size: `html` is 18px by default, 20px from 1200px wide and 22px from 1700px wide. Because of that, layout widths (`.wrap`, grid columns, logo heights, `max-width` on text blocks) are in `rem`, not `px` — a fixed-px width would stay put while the text grows and break the layout. Media-query breakpoints stay in px.
 - Navigation on service pages links back to anchors in `index.html` (`index.html#services`, etc.), not to standalone pages — `index.html` is the only page with real in-page sections.
 - Page titles follow the pattern `<Service Name> · Beaver Advisors`; `index.html`'s title is the full tagline.
 
