@@ -30,10 +30,26 @@ The GitHub CLI (`gh`) is available in this environment for working with issues, 
 ## Architecture / conventions
 
 - Each service page duplicates the same CSS (custom properties for colors, nav, hero, section styles) inline rather than sharing a stylesheet — when changing shared visual style (colors, nav, typography), the same edit must be repeated across all files.
-- Design tokens are defined as CSS custom properties at the top of each page's `:root` block (e.g. `--purple`, `--teal`, `--lavender`, `--ink`, `--cream`), and are consistent across pages.
-- Fonts are loaded from Google Fonts CDN: `Playfair Display` (serif, headings) and `DM Sans` (sans-serif, body).
+- Design tokens are defined as CSS custom properties at the top of each page's `:root` block, and are consistent across pages. **Token names are legacy from the previous brand and no longer describe the color** — see "Brand identity" below for what each one actually holds.
+- Fonts are loaded from Google Fonts CDN: `Manrope` only (all weights 300–800).
 - Navigation on service pages links back to anchors in `index.html` (`index.html#services`, etc.), not to standalone pages — `index.html` is the only page with real in-page sections.
 - Page titles follow the pattern `<Service Name> · Beaver Advisors`; `index.html`'s title is the full tagline.
+
+## Brand identity
+
+Source files live outside the repo (the brandboard PDF and logo PNG/JPG/AI exports). The site uses a dark navy theme built from the brand palette:
+
+| Brand color | Hex | Held by token(s) | Used for |
+|---|---|---|---|
+| Azul marino | `#0B1A2B` | `--ink` | page background (cards `--off` `#112338`, hover `--mid` `#1B3350`) |
+| Lima | `#D7FF5C` | `--teal` | primary CTA buttons (`.nav-cta`, `.btn-gold`, `.btn-teal`, `.form-submit`), labels, numbers, check/arrow bullets |
+| Lila | `#ABA6FF` | `--purple`, `--gold`, `--lavender` | accent words (`em`, hero rotator), secondary button (`.btn-purple`), highlighted cards |
+| Celeste | `#8FC7F4` | `--lavender-2`, `--mint` | decorative only (hero art) |
+
+- Text on lima/lila backgrounds must be navy (`var(--ink)`), never white — white fails contrast on both.
+- Manrope has no true italic, so `font-style` is `normal` everywhere (a global `em{font-style:normal}` rule keeps the UA default from faux-italicizing); emphasis is done with color instead.
+- Logo assets are in `assets/`: `logo-white.png` (wordmark for dark backgrounds, used in every nav and footer as an `<img>`; `en/` pages reference it as `../assets/logo-white.png`) and `favicon.png`. Only the white wordmark and favicon are used on the dark site; other logo variants (black/navy wordmark, isotipo) exist in the brand files if a light surface is ever needed.
+- The homepage hero has no photo. `.hero-art` is an inline SVG built from the brand's graphic elements (lilac arch, thin lime arc, lime dot, celeste quarter-circle); on screens ≤900px only the faint arch remains so text stays legible. `index.html` and `en/index.html` each carry their own copy.
 
 ## English version (`en/`)
 
