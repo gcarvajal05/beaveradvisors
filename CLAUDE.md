@@ -10,7 +10,7 @@ Pages:
 - `index.html` — the main landing page (hero, about, services, testimonials, founder, contact — these are anchor sections, not separate routes).
 - One HTML file per service, each linking back to `index.html` anchor sections (`#about`, `#services`, `#testimonials`, `#founder`, `#contact`) via the nav bar:
   - `arranca-bien.html` (displayed as "Despegar")
-  - `chill-books.html` (displayed as "Contabilidad Mensual")
+  - `chill-books.html` (displayed as "Servicios de Contabilidad": four packages — Beaver Enterprise (featured, listed first), Micro y pequeñas empresas, Entidades sin fines de lucro, Trabajadores independientes. Each CTA links to `index.html?paquete=<enterprise|micro|ong|independientes>#contact`, which preselects the matching option of the quote form via `data-pkg` in `index.html`)
   - `control-financiero.html`
   - `diagnostico-financiero.html`
   - `estructuracion-financiera.html`

@@ -698,8 +698,8 @@ footer {
     <div class="services-list">
       <a href="chill-books.html" class="service-item">
         <span class="service-num">01</span>
-        <span class="service-name">Contabilidad Mensual <span style="font-size:.7em;opacity:.4;transition:opacity .2s;">→</span></span>
-        <span class="service-desc">Contabilidad mensual con sentido.<br>Información que usás para decidir.</span>
+        <span class="service-name">Servicios de Contabilidad <span style="font-size:.7em;opacity:.4;transition:opacity .2s;">→</span></span>
+        <span class="service-desc">Contabilidad adaptada al tamaño<br>y la complejidad de tu negocio.</span>
       </a>
       <a href="certificacion-ingresos.html" class="service-item">
         <span class="service-num">02</span>
@@ -976,7 +976,10 @@ footer {
             <label for="q-service-es">Servicio de interés</label>
             <select id="q-service-es" name="Servicio de interés">
               <option value="">Seleccioná una opción</option>
-              <option>Contabilidad Mensual</option>
+              <option data-pkg="enterprise">Contabilidad · Beaver Enterprise</option>
+              <option data-pkg="micro">Contabilidad · Micro y pequeñas empresas</option>
+              <option data-pkg="ong">Contabilidad · Entidades sin fines de lucro</option>
+              <option data-pkg="independientes">Contabilidad · Trabajadores independientes</option>
               <option>Despegar</option>
               <option>Diagnóstico Financiero Beaver</option>
               <option>Plan Financiero Anual</option>
@@ -1042,6 +1045,13 @@ function rotate() {
 }
 rotator.style.transition = 'opacity .5s, transform .5s';
 setInterval(rotate, 2800);
+
+// Preselect the service from ?paquete=... (links from the accounting page)
+const pkgParam = new URLSearchParams(location.search).get('paquete');
+if (pkgParam) {
+  const pkgOpt = document.querySelector('#quote-form option[data-pkg="' + pkgParam + '"]');
+  if (pkgOpt) pkgOpt.selected = true;
+}
 
 // Quote form
 const quoteForm = document.getElementById('quote-form');

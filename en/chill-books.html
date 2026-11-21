@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/favicon.png">
-<title>Monthly Accounting · Beaver Advisors</title>
+<title>Accounting Services · Beaver Advisors</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -100,16 +100,102 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2.5rem;displ
 .phase ul li{font-size:.8rem;color:var(--muted);padding:.2rem 0;display:flex;gap:.4rem;line-height:1.4}
 .phase ul li::before{content:'·';color:var(--teal);flex-shrink:0}
 
-/* TIERS (Contabilidad Mensual) */
-.tier{border:1px solid var(--line);border-radius:8px;background:var(--off);padding:2.5rem;margin-bottom:1.5rem}
-.tier.feat{background:rgba(171,166,255,.08);border-color:rgba(171,166,255,.3)}
-.tier-num{font-size:.62rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem}
-.tier-title{font-size:1.5rem;margin-bottom:.25rem}
-.tier-title span{color:var(--muted);font-weight:400}
-.tier.feat .tier-title{color:var(--lavender)}
-.tier-desc{max-width:34.44rem;margin-bottom:1.5rem}
-.tier-includes-label{font-size:.68rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
-
+/* ACCOUNTING PACKAGES */
+.pk-hero-art{position:absolute;z-index:0;right:-4%;top:12%;width:min(38vw,28rem);aspect-ratio:1/1;pointer-events:none}
+.pk-hero-art svg{width:100%;height:100%;display:block;overflow:visible}
+.pk-lead{max-width:37rem;margin:1.5rem 0 2.25rem}
+.pk-lead p{font-size:1rem;color:rgba(255,255,255,.74);line-height:1.75;margin-bottom:.9rem}
+.pk-actions{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center}
+.btn-ghost{display:inline-block;color:rgba(255,255,255,.8);font-size:.83rem;font-weight:500;padding:.8rem 1.7rem;border:1px solid rgba(255,255,255,.25);border-radius:50px;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(--white);color:var(--white)}
+.btn-lg{padding:.95rem 2.2rem!important;font-size:.88rem!important}
+.pk-target{scroll-margin-top:6rem}
+.pk-section{padding:5rem 0}
+.pk-head{max-width:42rem;margin-bottom:2.5rem}
+.pk-head h2{margin:.9rem 0 1rem}
+.pk-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.pk-card{position:relative;display:flex;flex-direction:column;gap:.85rem;background:var(--off);border:1px solid var(--line);border-radius:12px;padding:1.75rem;transition:transform .25s,border-color .25s,box-shadow .25s}
+.pk-card:hover{transform:translateY(-3px);border-color:rgba(171,166,255,.5);box-shadow:0 14px 40px rgba(0,0,0,.3)}
+.pk-num{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal)}
+.pk-card h3{font-size:1.2rem;font-weight:700;color:var(--white);line-height:1.2}
+.pk-tag{font-size:.88rem;font-weight:500;color:rgba(255,255,255,.74);line-height:1.55}
+.pk-for{font-size:.8rem;color:var(--muted);line-height:1.6}
+.pk-for strong{color:rgba(255,255,255,.85);font-weight:600}
+.pk-link{margin-top:auto;padding-top:.4rem;font-size:.8rem;font-weight:700;color:var(--lavender);display:inline-flex;align-items:center;gap:.4rem}
+.pk-link span{display:inline-block;transition:transform .2s}
+.pk-card:hover .pk-link span{transform:translateX(3px)}
+.pk-card.feat{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr;gap:1.5rem 3rem;padding:2.25rem;background:linear-gradient(135deg,#112338 0%,#162a52 100%);border-color:rgba(215,255,92,.35)}
+.pk-card.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:12px 12px 0 0;background:linear-gradient(90deg,var(--teal),var(--purple))}
+.pk-card.feat:hover{border-color:rgba(215,255,92,.65)}
+.pk-card.feat h3{font-size:1.9rem;letter-spacing:-.02em}
+.pk-card.feat .pk-tag{font-size:1rem}
+.pk-feat-main{display:flex;flex-direction:column;gap:.85rem}
+.pk-feat-side{display:flex;flex-direction:column;gap:.9rem;justify-content:center;padding-left:2.5rem;border-left:1px solid rgba(255,255,255,.1)}
+.pk-badge{align-self:flex-start;background:rgba(215,255,92,.12);border:1px solid rgba(215,255,92,.35);color:var(--teal);font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:.3rem .85rem;border-radius:50px}
+.pk-side-label{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
+.pk-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.pk-chip{font-size:.76rem;font-weight:500;color:rgba(255,255,255,.85);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);padding:.45rem .85rem;border-radius:50px}
+.pk-ent{position:relative;overflow:hidden;background:linear-gradient(135deg,#0f2036 0%,#14264A 100%);border:1px solid rgba(215,255,92,.3);border-radius:16px;padding:3rem}
+.pk-ent::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--purple))}
+.pk-ent-head{display:grid;grid-template-columns:1fr 1fr;gap:2rem 4rem;margin-bottom:2.5rem}
+.pk-ent h2{margin:.7rem 0 .9rem}
+.pk-lede{font-size:1.05rem;font-weight:600;color:var(--white);line-height:1.5;margin-bottom:1rem}
+.pk-ent-head p{margin-bottom:.9rem}
+.pk-sub{font-size:.66rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin:0 0 .9rem}
+.pk-incl{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:2.25rem}
+.pk-incl-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:1.1rem 1.25rem;transition:border-color .2s,background .2s}
+.pk-incl-item:hover{border-color:rgba(215,255,92,.45);background:rgba(215,255,92,.04)}
+.pk-incl-item strong{display:block;font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
+.pk-incl-item span{font-size:.8rem;color:var(--muted);line-height:1.55}
+.pk-get{margin:0 0 1.75rem;padding:1.6rem 1.75rem;border:1px solid rgba(215,255,92,.28);border-radius:10px;background:rgba(215,255,92,.05)}
+.pk-get p{font-size:.95rem;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:.9rem}
+.pk-end{font-size:1.05rem;font-weight:700;color:var(--teal);line-height:1.4;margin:0!important}
+.pk-stack-head{margin:4.5rem 0 2rem}
+.pk-stack-head h2{margin:.9rem 0 .8rem}
+.pk-stack{display:grid;gap:1.5rem}
+.pk-detail{display:grid;grid-template-columns:1fr 1.1fr;gap:2rem 3.5rem;background:var(--off);border:1px solid var(--line);border-radius:14px;padding:2.25rem;transition:border-color .25s}
+.pk-detail:hover{border-color:rgba(171,166,255,.4)}
+.pk-detail h3{font-size:1.5rem;font-weight:700;letter-spacing:-.015em;margin:.6rem 0 .5rem;line-height:1.2}
+.pk-detail .pk-lede{font-size:.98rem}
+.pk-detail p{margin-bottom:.9rem}
+.pk-acc{border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.03);margin-bottom:1.25rem}
+.pk-acc summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.25rem;font-weight:700;font-size:.9rem;color:var(--white)}
+.pk-acc summary::-webkit-details-marker{display:none}
+.pk-acc summary::after{content:'+';color:var(--teal);font-size:1.4rem;line-height:1;transition:transform .25s}
+.pk-acc[open] summary::after{transform:rotate(45deg)}
+.pk-acc summary small{margin-left:auto;font-size:.68rem;font-weight:600;color:var(--muted);letter-spacing:.5px}
+.pk-acc summary:hover{background:rgba(255,255,255,.04)}
+.pk-acc-body{padding:.25rem 1.25rem 1.1rem}
+.pk-list li{font-size:.82rem;color:rgba(255,255,255,.7)}
+.pk-list li strong{color:var(--white);font-weight:600}
+.pk-detail .pk-get{padding:1.25rem 1.4rem}
+.pk-detail .pk-get p{font-size:.88rem}
+.pk-comp{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:1.5rem}
+.pk-comp-item{display:flex;gap:.7rem;align-items:flex-start;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:10px;font-size:.84rem;font-weight:500;color:rgba(255,255,255,.78);line-height:1.45;background:var(--off);transition:border-color .2s,background .2s,color .2s}
+.pk-comp-item::before{content:'→';color:var(--teal);font-size:.8rem;margin-top:1px;flex-shrink:0}
+a.pk-comp-item:hover{border-color:rgba(171,166,255,.5);background:rgba(171,166,255,.06);color:var(--white)}
+.pk-note{font-size:.84rem;color:var(--muted)}
+.pk-final{position:relative;overflow:hidden;text-align:center;padding:3.5rem 2.5rem;border:1px solid rgba(171,166,255,.35);border-radius:16px;background:linear-gradient(135deg,#0B1A2B 0%,#132344 100%)}
+.pk-final h2{margin:.9rem 0 1rem}
+.pk-final p{max-width:36rem;margin:0 auto .9rem}
+.pk-free{display:inline-block;color:var(--teal);font-weight:700;font-size:.85rem;letter-spacing:.3px;margin:.4rem 0 1.75rem}
+.pk-final .pk-actions{justify-content:center}
+@media(max-width:900px){
+  .pk-pick{grid-template-columns:1fr}
+  .pk-card.feat{grid-template-columns:1fr;padding:1.75rem 1.5rem}
+  .pk-feat-side{padding-left:0;border-left:none;border-top:1px solid rgba(255,255,255,.1);padding-top:1.25rem}
+  .pk-ent{padding:2rem 1.5rem}
+  .pk-ent-head,.pk-incl{grid-template-columns:1fr}
+  .pk-detail{grid-template-columns:1fr;padding:1.75rem 1.5rem}
+  .pk-comp{grid-template-columns:1fr 1fr}
+  .pk-hero-art{opacity:.22;width:70vw;right:-26%}
+  .pk-section{padding:3.5rem 0}
+}
+@media(max-width:580px){
+  .pk-comp{grid-template-columns:1fr}
+  .pk-final{padding:2.5rem 1.25rem}
+  .pk-actions .btn-teal,.pk-actions .btn-ghost,.pk-actions .btn-purple{width:100%;text-align:center}
+}
 /* CTA STRIP */
 .cta-strip{margin:4rem 0 0;padding:3rem;border:1px solid rgba(171,166,255,.3);border-radius:8px;background:var(--purple-lt);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 .cta-strip h3{font-size:1.3rem;font-family:'Manrope',sans-serif;font-weight:400;color:var(--white);margin-bottom:.4rem}
@@ -170,93 +256,283 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
 
 <section class="svc-hero">
   <div class="svc-hero-bg"></div>
+  <div class="pk-hero-art" aria-hidden="true">
+    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <path d="M140 560A260 260 0 0 1 660 560" stroke="#ABA6FF" stroke-width="70"/>
+      <path d="M60 720A520 520 0 0 1 700 140" stroke="#D7FF5C" stroke-width="2.5"/>
+      <circle cx="660" cy="650" r="34" fill="#D7FF5C"/>
+    </svg>
+  </div>
   <div class="wrap svc-hero-content">
-    <div class="breadcrumb"><a href="index.html">Home</a> / Services / Monthly Accounting</div>
-    <div class="svc-tag"><span class="svc-tag-dot"></span><span class="label">Monthly plan</span></div>
-    <h1>Monthly Accounting</h1>
-    <p class="svc-hook">Your accounting should help you make decisions, not just file taxes.</p>
-    <div class="svc-meta">
-      <div class="svc-meta-item"><div class="m-label">Type</div><div class="m-val">Monthly <em>plan</em></div></div>
-      <div class="svc-meta-item"><div class="m-label">Languages</div><div class="m-val"><em>EN</em> · ES</div></div>
+    <div class="breadcrumb"><a href="index.html">Home</a> / Services / Accounting Services</div>
+    <div class="svc-tag"><span class="svc-tag-dot"></span><span class="label">Accounting and business advisory</span></div>
+    <h1>Accounting that adapts<br>to your business</h1>
+    <div class="pk-lead">
+      <p>At Beaver Advisors we understand that every business has different accounting needs. That's why we offer solutions designed around the size, nature, and complexity of your operations.</p>
+      <p>From independent professionals to companies with complex operations and nonprofit organizations, we help you keep your financial information organized, meet your obligations, and have reliable information to make better decisions.</p>
+    </div>
+    <div class="pk-actions">
+      <a href="index.html?paquete=enterprise#contact" class="btn-teal btn-lg">Request an Enterprise proposal</a>
+      <a href="#soluciones" class="btn-ghost">Find your solution ↓</a>
     </div>
   </div>
 </section>
 <hr class="divider">
-<section class="svc-section">
+
+<section class="pk-section" id="soluciones">
   <div class="wrap">
-    <span class="label" style="display:block;margin-bottom:1rem;">Choose your level</span>
-    <h2 style="margin-bottom:1rem;">Choose the level of support<br>your business needs.</h2>
-    <p style="max-width:34.44rem;margin-bottom:3rem;">At Beaver we combine accounting, tax compliance, and financial analysis so you understand what's happening in your business, where it's headed, and what decisions you can make with more confidence.</p>
-
-    <div class="tier">
-      <div class="tier-num">Level 01</div>
-      <h3 class="tier-title">ESSENTIAL <span>— Keep your business in order</span></h3>
-      <p class="tier-desc">For independent professionals and small businesses that need to stay compliant and keep their numbers organized.</p>
-      <div class="tier-includes-label">Includes</div>
-      <ul class="svc-list">
-        <li>Bookkeeping and transaction classification</li>
-        <li>Monthly bank reconciliation</li>
-        <li>Alegra accounting license</li>
-        <li>Income statement</li>
-        <li>Balance sheet</li>
-        <li>Monthly VAT filing</li>
-        <li>Annual income tax filing</li>
-        <li>Business performance review meeting</li>
-      </ul>
-      <div class="transform-box" style="margin:1.5rem 0 0;">
-        <div class="transform-text">"We make sure your books are up to date so you can focus on running your business."</div>
-      </div>
+    <div class="pk-head">
+      <span class="label">Find your solution</span>
+      <h2>Find the right accounting solution for you</h2>
+      <p>Each package is designed around the size, nature, and complexity of your operations.</p>
     </div>
-
-    <div class="tier feat">
-      <div class="tier-num">Level 02</div>
-      <h3 class="tier-title">CONTROL <span>— Understand what's happening in your business</span></h3>
-      <div class="tier-includes-label">Includes everything in Essential, plus</div>
-      <ul class="svc-list">
-        <li>Monthly cash flow</li>
-        <li>Variance analysis</li>
-        <li>Profitability analysis</li>
-        <li>Basic financial KPI tracking</li>
-        <li>Monthly financial meeting</li>
-        <li>Direct channel for financial and tax questions</li>
-      </ul>
-      <div class="transform-box" style="margin:1.5rem 0 0;">
-        <div class="transform-text">"You don't just receive financial statements: we review them with you and help you understand what's working, what's draining cash, and where you need to pay attention."</div>
-      </div>
+    <div class="pk-pick">
+      <a href="#enterprise" class="pk-card feat">
+        <div class="pk-feat-main">
+          <span class="pk-badge">For more complex operations</span>
+          <div class="pk-num">01</div>
+          <h3>Beaver Enterprise</h3>
+          <p class="pk-tag">Accounting solutions for companies with more complex operations.</p>
+          <p class="pk-for"><strong>Ideal for:</strong> commercial companies, distributors, importers, manufacturers, and organizations whose operations require specialized accounting treatment.</p>
+          <span class="pk-link">View details <span>→</span></span>
+        </div>
+        <div class="pk-feat-side">
+          <span class="pk-side-label">Built for operations with</span>
+          <div class="pk-chips">
+          <span class="pk-chip">Inventory and cost of sales</span>
+          <span class="pk-chip">Imports and foreign currency</span>
+          <span class="pk-chip">Multiple business lines</span>
+          <span class="pk-chip">Multiple bank accounts and financing sources</span>
+          <span class="pk-chip">More complex cost structures</span>
+          <span class="pk-chip">Detailed financial information for management</span>
+          </div>
+        </div>
+      </a>
+      <a href="#micro" class="pk-card">
+        <div class="pk-num">02</div>
+        <h3>Micro and small businesses</h3>
+        <p class="pk-tag">Your business is growing. Your accounting should evolve too.</p>
+        <p class="pk-for"><strong>Ideal for:</strong> micro and small commercial or service businesses that need to outsource their accounting.</p>
+        <span class="pk-link">View details <span>→</span></span>
+      </a>
+      <a href="#ong" class="pk-card">
+        <div class="pk-num">03</div>
+        <h3>Nonprofit organizations</h3>
+        <p class="pk-tag">Financial transparency for organizations that create impact.</p>
+        <p class="pk-for"><strong>Ideal for:</strong> foundations, associations, and organizations that manage donations, contributions, or projects.</p>
+        <span class="pk-link">View details <span>→</span></span>
+      </a>
+      <a href="#independientes" class="pk-card">
+        <div class="pk-num">04</div>
+        <h3>Independent professionals</h3>
+        <p class="pk-tag">You focus on your profession. We take care of your accounting.</p>
+        <p class="pk-for"><strong>Ideal for:</strong> independent professionals, consultants, freelancers, and individuals who work for themselves.</p>
+        <span class="pk-link">View details <span>→</span></span>
+      </a>
     </div>
-
-    <div class="tier">
-      <div class="tier-num">Level 03</div>
-      <h3 class="tier-title">GROWTH <span>— Turn your numbers into decisions</span></h3>
-      <div class="tier-includes-label">Includes everything in Control, plus</div>
-      <ul class="svc-list">
-        <li>Cost structure review</li>
-        <li>Profitability analysis by product/service/business line</li>
-        <li>Budget and financial projections</li>
-        <li>Actual vs. budget analysis</li>
-        <li>Tax planning</li>
-        <li>Financial KPI definition</li>
-        <li>Two strategic meetings per month</li>
-      </ul>
-      <p style="margin-top:1.5rem;">For businesses that are already selling, have a team, and need to use their financial information to grow with more control.</p>
-      <p style="margin-top:.75rem;">A rolling 3/6/12-month projection that lets you answer questions like: Can we hire someone? Can we open another location? How much can we invest? What happens if sales drop 15%? How much cash will we have in six months?</p>
-    </div>
-
-    <p style="font-size:.78rem;color:var(--muted);text-align:center;margin-top:1rem;">Additional services such as payroll management, accounts payable, and accounts receivable are scoped based on the client's volume and needs.</p>
-    <p style="font-size:.78rem;color:var(--muted);text-align:center;margin-top:.5rem;">Every client gets a free meeting to understand the current state of their business.</p>
   </div>
 </section>
 <hr class="divider">
+
+<section class="pk-section" style="padding-top:4.5rem;">
+  <div class="wrap">
+    <article class="pk-ent pk-target" id="enterprise">
+      <div class="pk-ent-head">
+        <div>
+          <div class="pk-num">01 · Beaver Enterprise</div>
+          <h2>Beaver Enterprise</h2>
+          <p class="pk-lede">Accounting solutions for companies with more complex operations.</p>
+        <p>As a company grows, its financial processes become more demanding. Managing inventory, imports, costs, multiple operations, and corporate structures calls for accounting that goes beyond recording transactions.</p>
+        <p>Beaver Enterprise is our specialized solution for organizations that need more robust accounting management, structured financial information, and greater visibility into their operations.</p>
+        <p>We combine accounting expertise, knowledge of business processes, and technology tools to deliver reliable information that supports how the business is run.</p>
+        </div>
+        <div>
+          <p class="pk-sub">Who is this service for?</p>
+          <p>For commercial companies, distributors, importers, manufacturers, and organizations whose operations require specialized accounting treatment.</p>
+          <p>Especially those with one or more of the following characteristics:</p>
+          <ul class="svc-list pk-list">
+            <li>Inventory management and cost of sales.</li>
+            <li>Imports and foreign currency transactions.</li>
+            <li>Different product lines, services, or business units.</li>
+            <li>Multiple bank accounts and financing sources.</li>
+            <li>More complex cost and expense structures.</li>
+            <li>Need for detailed financial information for management.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="pk-sub">What's included?</p>
+      <div class="pk-incl">
+      <div class="pk-incl-item"><strong>Specialized end-to-end accounting</strong><span>Recording, classification, and review of accounting transactions according to the nature of the business and the applicable financial reporting framework.</span></div>
+      <div class="pk-incl-item"><strong>Reconciliations and account analysis</strong><span>Periodic review of bank accounts, ledger balances, and relevant financial statement items.</span></div>
+      <div class="pk-incl-item"><strong>Inventory accounting</strong><span>Accounting recording and reconciliation of inventory movements, costs, and adjustments, in line with the company's systems and controls.</span></div>
+      <div class="pk-incl-item"><strong>Accounting for imports</strong><span>Recording of international purchases, import-related costs, obligations, and foreign currency transactions.</span></div>
+      <div class="pk-incl-item"><strong>Cost accounting</strong><span>Accounting classification and analysis of costs related to products, services, or operating activities.</span></div>
+      <div class="pk-incl-item"><strong>Asset and liability control</strong><span>Accounting follow-up of fixed assets, depreciation, financing, and obligations.</span></div>
+      <div class="pk-incl-item"><strong>Financial statements</strong><span>Preparation of the income statement, balance sheet, statement of changes in equity, cash flows, and explanatory notes, under the applicable financial reporting framework.</span></div>
+      <div class="pk-incl-item"><strong>Tax compliance</strong><span>Preparation and filing of the tax obligations included in the service, considering the specifics of the operation: VAT, income tax, and the Beneficial Ownership Transparency Registry.</span></div>
+      <div class="pk-incl-item"><strong>Segment financial reporting</strong><span>Information by cost center, business line, or operating unit, when the record structure allows it.</span></div>
+      <div class="pk-incl-item"><strong>Financial follow-up meetings</strong><span>Review of results, relevant variances, and accounting matters that require management's attention.</span></div>
+      </div>
+      <div class="pk-get">
+        <p class="pk-sub" style="margin-bottom:.6rem;">What you get</p>
+        <p>An accounting structure ready to meet the demands of your operation, improve the reliability of your information, and make financial oversight of the business easier.</p>
+        <p class="pk-end">The greater the complexity, the greater the need for control.</p>
+      </div>
+      <div class="pk-actions">
+        <a href="index.html?paquete=enterprise#contact" class="btn-teal btn-lg">Request an Enterprise proposal</a>
+        <a href="index.html#contact" class="btn-ghost">Schedule a consultation</a>
+      </div>
+    </article>
+
+    <div class="pk-stack-head">
+      <span class="label">Other accounting solutions</span>
+      <h2>For every stage of your business</h2>
+      <p>The same professional standard, adjusted to the size and nature of your operation.</p>
+    </div>
+    <div class="pk-stack">
+    <article class="pk-detail pk-target" id="micro">
+      <div>
+        <div class="pk-num">02 · Micro and small businesses</div>
+        <h3>Accounting for micro and small businesses</h3>
+        <p class="pk-lede">Your business is growing. Your accounting should evolve too.</p>
+        <p>Running a business takes much more than knowing how much you sold during the month. You need to understand your expenses, know your results, and keep financial control of your operations.</p>
+        <p>At Beaver Advisors we support micro and small commercial and service businesses with organized, timely accounting management tailored to their operating reality.</p>
+        <p>Our goal is for you to have reliable financial information so you can run your business with more confidence.</p>
+        <p class="pk-sub" style="margin-top:1.4rem;">Who is this service for?</p>
+        <p>For micro and small commercial or service businesses that need to outsource their accounting and keep proper control of their operations. Ideal for businesses with suppliers, customers, business bank accounts, operating expenses, and an administrative structure that is still developing.</p>
+      </div>
+      <div>
+        <details class="pk-acc">
+          <summary>See what's included <small>9 services</small></summary>
+          <div class="pk-acc-body">
+            <ul class="svc-list pk-list">
+          <li><span><strong>Comprehensive monthly accounting:</strong> recording and classification of the company's economic transactions.</span></li>
+          <li><span><strong>Bank reconciliations:</strong> monthly review of bank accounts and financial movements.</span></li>
+          <li><span><strong>Financial statements:</strong> monthly preparation of the income statement, balance sheet, statement of changes in equity, cash flows, and explanatory notes, with information that shows how the business is performing.</span></li>
+          <li><span><strong>Tax compliance:</strong> preparation and filing of tax returns according to your tax regime (VAT, income tax, and the Beneficial Ownership Transparency Registry).</span></li>
+          <li><span><strong>Accounts receivable and payable control:</strong> recording and control of outstanding balances with customers and suppliers.</span></li>
+          <li><span><strong>Asset and obligation records:</strong> accounting for fixed assets, loans, and other financial obligations.</span></li>
+          <li><span><strong>Business performance analysis:</strong> review of revenue, costs, expenses, and relevant variances.</span></li>
+          <li><span><strong>Digital accounting tools:</strong> information management through accounting systems that make records easier to organize and consult.</span></li>
+          <li><span><strong>Follow-up meetings:</strong> regular sessions to review financial results and answer relevant questions.</span></li>
+            </ul>
+          </div>
+        </details>
+        <div class="pk-get">
+          <p class="pk-sub" style="margin-bottom:.6rem;">What you get</p>
+          <p>Organized accounting that lets you understand your company's financial position, meet your obligations, and have useful information to manage its growth.</p>
+          <p class="pk-end">Because a business that knows its numbers can make better decisions.</p>
+        </div>
+        <a href="index.html?paquete=micro#contact" class="btn-purple">I want to improve my company's accounting</a>
+      </div>
+    </article>
+    <article class="pk-detail pk-target" id="ong">
+      <div>
+        <div class="pk-num">03 · Nonprofit organizations</div>
+        <h3>Accounting for nonprofit organizations</h3>
+        <p class="pk-lede">Financial transparency for organizations that create impact.</p>
+        <p>Nonprofit organizations carry a special responsibility: to manage their resources transparently and show how those resources advance their mission.</p>
+        <p>At Beaver Advisors we offer specialized accounting services for foundations, associations, and other nonprofit entities, taking into account the specifics of their funding sources, activities, and reporting obligations.</p>
+        <p>We help you keep organized records, strengthen accountability, and have reliable financial information to support the management of your organization.</p>
+        <p class="pk-sub" style="margin-top:1.4rem;">Who is this service for?</p>
+        <p>For foundations, associations, and nonprofit organizations that manage donations, contributions, projects, social programs, or other funding sources.</p>
+      </div>
+      <div>
+        <details class="pk-acc">
+          <summary>See what's included <small>9 services</small></summary>
+          <div class="pk-acc-body">
+            <ul class="svc-list pk-list">
+          <li><span><strong>Specialized monthly accounting:</strong> recording and classification of transactions according to the nature of the organization and the applicable accounting framework.</span></li>
+          <li><span><strong>Donation and contribution records:</strong> accounting for resources received, considering their nature and associated conditions.</span></li>
+          <li><span><strong>Accounting control by project and fund:</strong> classification of income and expenses by program, project, or funding source, according to the entity's needs.</span></li>
+          <li><span><strong>Restricted resource tracking:</strong> accounting identification of funds subject to specific conditions or purposes.</span></li>
+          <li><span><strong>Bank reconciliations:</strong> monthly review of bank movements and balances.</span></li>
+          <li><span><strong>Financial statements:</strong> preparation of the income statement, balance sheet, statement of changes in equity, cash flows, and explanatory notes, under the applicable financial reporting framework.</span></li>
+          <li><span><strong>Compliance with obligations:</strong> preparation and filing of tax returns and reports included in the service, according to applicable obligations.</span></li>
+          <li><span><strong>Management reporting:</strong> financial information that makes it easier for boards of directors and project leads to oversee resources.</span></li>
+          <li><span><strong>Accounting guidance:</strong> advice on recording, classifying, and presenting transactions specific to nonprofit organizations.</span></li>
+            </ul>
+          </div>
+        </details>
+        <div class="pk-get">
+          <p class="pk-sub" style="margin-bottom:.6rem;">What you get</p>
+          <p>Clear, organized, and reliable financial information to strengthen transparency, make accountability easier, and support your organization's sustainability.</p>
+          <p class="pk-end">You focus on creating impact. We help you look after the resources that make it possible.</p>
+        </div>
+        <a href="index.html?paquete=ong#contact" class="btn-purple">Request a quote for my organization</a>
+      </div>
+    </article>
+    <article class="pk-detail pk-target" id="independientes">
+      <div>
+        <div class="pk-num">04 · Independent professionals</div>
+        <h3>Accounting for independent professionals</h3>
+        <p class="pk-lede">You focus on your profession. We take care of your accounting.</p>
+        <p>Working independently means much more than delivering excellent service. It also means managing your income, controlling your expenses, and keeping your tax obligations up to date.</p>
+        <p>At Beaver Advisors we simplify your accounting so you can spend more time on what you do best, with the peace of mind of professional support.</p>
+        <p class="pk-sub" style="margin-top:1.4rem;">Who is this service for?</p>
+        <p>Designed for independent professionals, consultants, freelancers, and individuals who carry out economic activities on their own account.</p>
+      </div>
+      <div>
+        <details class="pk-acc">
+          <summary>See what's included <small>7 services</small></summary>
+          <div class="pk-acc-body">
+            <ul class="svc-list pk-list">
+          <li><span><strong>Bookkeeping and classification:</strong> monthly organization of income, expenses, and other transactions related to your economic activity.</span></li>
+          <li><span><strong>Bank reconciliation:</strong> review of the bank movements tied to your activity to keep records reliable.</span></li>
+          <li><span><strong>Tax compliance:</strong> preparation and filing of the periodic and annual tax returns included in the service, according to your obligations.</span></li>
+          <li><span><strong>Deductible expense control:</strong> identification and classification of expenses related to your economic activity, in line with applicable regulations.</span></li>
+          <li><span><strong>Financial summary:</strong> clear information about your income, expenses, and results.</span></li>
+          <li><span><strong>Digital accounting tools:</strong> use of technology solutions to make organizing and managing your information easier.</span></li>
+          <li><span><strong>Professional support:</strong> answers to accounting and tax questions related to your activity.</span></li>
+            </ul>
+          </div>
+        </details>
+        <div class="pk-get">
+          <p class="pk-sub" style="margin-bottom:.6rem;">What you get</p>
+          <p>Peace of mind, organization, and greater clarity about your professional finances, without having to spend your own time managing the accounting.</p>
+          <p class="pk-end">Your talent generates income. We help you keep it under control.</p>
+        </div>
+        <a href="index.html?paquete=independientes#contact" class="btn-purple">I want to organize my accounting</a>
+      </div>
+    </article>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<section class="pk-section" id="complementarios">
+  <div class="wrap">
+    <div class="pk-head">
+      <span class="label">Complementary services</span>
+      <h2>Your business may need more than accounting.</h2>
+      <p>Our accounting services can be complemented with specialized solutions according to each client's needs:</p>
+    </div>
+    <div class="pk-comp">
+    <div class="pk-comp-item">Payroll and labor obligations management.</div>
+    <div class="pk-comp-item">Accounts receivable and payable management.</div>
+    <a class="pk-comp-item" href="diagnostico-financiero.html">Business financial diagnostics.</a>
+    <a class="pk-comp-item" href="plan-financiero-anual.html">Budgets and financial projections.</a>
+    <div class="pk-comp-item">Profitability and cost structure analysis.</div>
+    <div class="pk-comp-item">Tax planning.</div>
+    <div class="pk-comp-item">Implementation and optimization of accounting processes.</div>
+    <div class="pk-comp-item">Design of financial indicators and reports.</div>
+    <a class="pk-comp-item" href="cfo-estrategico.html">Strategic financial advisory.</a>
+    </div>
+    <p class="pk-note">These services are quoted separately, based on their scope and complexity.</p>
+  </div>
+</section>
 
 <div class="wrap">
-  <div class="cta-strip">
-    <div>
-      <h3>Is this the service you need?</h3>
-      <p>First consultation free. No commitment. Just an honest conversation.</p>
-    </div>
-    <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
-      <a href="https://api.whatsapp.com/send?phone=50664274720" class="btn-teal">WhatsApp</a>
-      <a href="index.html#contact" class="btn-purple">Send message</a>
+  <div class="pk-final">
+    <span class="label">Let's talk</span>
+    <h2>Not sure which service your business needs?</h2>
+      <p>Let's talk. Every company is different, and its accounting should be too.</p>
+      <p>At Beaver Advisors we carry out an initial assessment to get to know your activity, understand your needs, and recommend the right accounting solution.</p>
+      <p>Our fees are determined by transaction volume, operational complexity, and the level of support required.</p>
+    <span class="pk-free">First consultation free and with no commitment.</span>
+    <div class="pk-actions">
+      <a href="index.html#contact" class="btn-teal btn-lg">Schedule a consultation</a>
+      <a href="https://api.whatsapp.com/send?phone=50664274720" class="btn-ghost">WhatsApp</a>
     </div>
   </div>
 </div>
@@ -273,5 +549,17 @@ footer{padding:2.5rem;border-top:1px solid var(--line);display:flex;align-items:
   </ul>
   <p class="footer-copy">© 2025 Beaver Advisors · Costa Rica · EN · ES</p>
 </footer>
+<script>
+// Abre el desplegable "Qué incluye" del paquete al que se navega por ancla
+function pkOpen(id){
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.querySelectorAll('details').forEach(function(d){ d.open = true; });
+}
+if (location.hash) pkOpen(location.hash.slice(1));
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(){ pkOpen(a.getAttribute('href').slice(1)); });
+});
+</script>
 </body>
 </html>

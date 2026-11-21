@@ -698,8 +698,8 @@ footer {
     <div class="services-list">
       <a href="chill-books.html" class="service-item">
         <span class="service-num">01</span>
-        <span class="service-name">Monthly Accounting <span style="font-size:.7em;opacity:.4;transition:opacity .2s;">→</span></span>
-        <span class="service-desc">Monthly accounting that makes sense.<br>Information you can use to decide.</span>
+        <span class="service-name">Accounting Services <span style="font-size:.7em;opacity:.4;transition:opacity .2s;">→</span></span>
+        <span class="service-desc">Accounting tailored to the size<br>and complexity of your business.</span>
       </a>
       <a href="certificacion-ingresos.html" class="service-item">
         <span class="service-num">02</span>
@@ -976,7 +976,10 @@ footer {
             <label for="q-service-en">Service of interest</label>
             <select id="q-service-en" name="Service of interest">
               <option value="">Select an option</option>
-              <option>Monthly Accounting</option>
+              <option data-pkg="enterprise">Accounting · Beaver Enterprise</option>
+              <option data-pkg="micro">Accounting · Micro and small businesses</option>
+              <option data-pkg="ong">Accounting · Nonprofit organizations</option>
+              <option data-pkg="independientes">Accounting · Independent professionals</option>
               <option>Launch</option>
               <option>Beaver Financial Diagnosis</option>
               <option>Annual Financial Plan</option>
@@ -1042,6 +1045,13 @@ function rotate() {
 }
 rotator.style.transition = 'opacity .5s, transform .5s';
 setInterval(rotate, 2800);
+
+// Preselect the service from ?paquete=... (links from the accounting page)
+const pkgParam = new URLSearchParams(location.search).get('paquete');
+if (pkgParam) {
+  const pkgOpt = document.querySelector('#quote-form option[data-pkg="' + pkgParam + '"]');
+  if (pkgOpt) pkgOpt.selected = true;
+}
 
 // Quote form
 const quoteForm = document.getElementById('quote-form');
